@@ -31,13 +31,13 @@ def main():
 
     for line in get_lines(infile):
         processed_line = nlp(line)
-        NERs.update([(X.text, X.label_) for X in processed_line.ents])
+        with open(outfile, 'a') as outfile:
+            ners = [(X.text, X.label_) for X in processed_line.ents]
+            for n in ners:
+                outfile.write(str(n) + "\n")
 
     print(NERs)
 
-    with open(outfile, 'w') as outfile:
-        for n in NERs:
-            outfile.write(str(n) + "\n")
 
 
 if __name__ == '__main__':
