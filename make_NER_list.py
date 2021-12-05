@@ -30,8 +30,7 @@ def main():
     NERs = set(())
 
     for line in get_lines(infile):
-        cleaned_line = re.sub(whitespace_reg, ' ', re.sub(url_reg, '', line))
-        processed_line = nlp(cleaned_line)
+        processed_line = nlp(line)
         NERs.update([(X.text, X.label_) for X in processed_line.ents])
 
     print(NERs)
