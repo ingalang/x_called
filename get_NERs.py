@@ -6,9 +6,6 @@ nlp = en_core_web_sm.load()
 import re
 import argparse
 
-
-
-
 def get_lines(filepath):
     with open(filepath, 'r') as infile:
         for line in infile:
@@ -23,9 +20,6 @@ def main():
 
     args = parser.parse_args()
     infile, outfile = args.infile, args.outfile
-
-    url_reg = re.compile('(http [\s\W]*|www [\s\W]*)\S+|<p>|[@]+\w*|^\s+')
-    whitespace_reg = re.compile('\s+')
 
     NERs = set(())
 
