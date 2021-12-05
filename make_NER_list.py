@@ -31,10 +31,10 @@ def main():
 
     for line in get_lines(infile):
         processed_line = nlp(line)
-        with open(outfile, 'a') as outfile:
+        with open(outfile, 'a') as file:
             ners = [(X.text, X.label_) for X in processed_line.ents]
             for n in ners:
-                outfile.write(str(n) + "\n")
+                file.write(str(n) + "\n")
 
     print(NERs)
 
